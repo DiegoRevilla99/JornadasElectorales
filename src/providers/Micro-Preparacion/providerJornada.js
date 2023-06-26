@@ -438,52 +438,59 @@ export const updateBoletaData = async (
               }
           }    
           );
-          console.log("Data de respuesta", suplenteRespData);
+          // console.log("Data de respuesta", suplenteRespData);
     
       } catch (error) {
         // Manejar el error aquí
       }
     }
     // Partido
-    partidos.forEach(async (partido) => {
-      console.log("Data de partido", partido);
+    // for (const partido of partidos) {
+    //   console.log("Data de partido", partido);
+    
+    //   const { data: partidoRespData } = await jornadasAPI.put(
+    //     `jornada/electoral/partido/${partido.clavePartido}`,
+    //     {
+    //       nombre: partido.nameParty,
+    //       siglas: partido.siglasParty,
+    //       emblema: partido.emblemParty,
+    //       logo: partido.fotografiaParty,
+    //       fechaCreacion: "2023-06-24T03:17:59.214+00:00",
+    //       status: partido.statusParty,
+    //       estructuraBoletaModel: {
+    //         idEstructuraBoleta: idBoleta,
+    //       },
+    //       candidatoModel: {
+    //         idCandidato: partido.candidatosPartido.id,
+    //       },
+    //     }
+    //   );
+      // console.log("Data de respuesta", partidoRespData);
+      // }
 
+
+      for (const partido of partidos) {
       const { data: partidoRespData } = await jornadasAPI.put(
         `jornada/electoral/partido/${partido.clavePartido}`,
-        {
-          nombre: partido.nameParty,
-          siglas: partido.siglasParty,
-          emblema: partido.emblemParty,
-          logo: partido.fotografiaParty,
-          fechaCreacion:"",
-          status: partido.statusParty,
-          estructuraBoletaModel: {
-            idEstructuraBoleta: idBoleta,
-          },
-          candidatoModel:{
-            idCandidato: partido.candidatosPartido.id
-        },
-        // coalicionModel:{
-        //     claveCoalicion: 2
-        // }
+          {
+            nombre: partido.nameParty,
+               siglas: partido.siglasParty,
+               emblema: partido.emblemParty,
+               logo: partido.fotografiaParty,
+               fechaCreacion: "2023-06-24T03:17:59.214+00:00",
+               status: partido.statusParty,
+           estructuraBoletaModel:{
+               idEstructuraBoleta: idBoleta
+           },
+           candidatoModel:{
+               idCandidato: partido.candidatosPartido[0].id
+           },
         }
       );
       console.log("Data de respuesta", partidoRespData);
-    });
-  //   {
-  //     "nombre": "PARTIDO ACCION NACIONAL",
-  //     "siglas": "PAN",
-  //     "emblema": "PAN ES LA UNION",
-  //     "logo": "https://imagesvotacion.s3.eu-north-1.amazonaws.com/1687576332513_PAN_logo_(Mexico).svg.png",
-  //     "fechaCreacion": "2023-06-24T03:17:59.214+00:00",
-  //     "status": true,
-  //     "estructuraBoletaModel":{
-  //         "idEstructuraBoleta": 9
-  //     },
-  //     "candidatoModel":{
-  //         "idCandidato": 12
-  //     }
-  // }
+      }
+    
+    
 
     return { ok: true };
   } catch (error) {
