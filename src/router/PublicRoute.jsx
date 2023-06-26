@@ -10,7 +10,7 @@ export const PublicRoute = ({ children }) => {
   const { status } = useSelector((state) => state.auth);
   console.log("StatusGGG de Public " + status);
   let ruta = sessionStorage.getItem("Location");
-  ruta = ruta ? ruta : "/";
+  ruta = ruta ? ruta : "/home";
   console.log("ruta::" + ruta);
   return (status === "notLogged") | (status === "checking") ? (
     children

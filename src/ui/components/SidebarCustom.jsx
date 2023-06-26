@@ -100,7 +100,10 @@ export const SidebarCustom = ({ selected, setSelected }) => {
             </Box>
 
             <Box paddingLeft={isCollapsed ? undefined : "5%"} marginTop="1rem">
-              <DividerItem isCollapsed={isCollapsed} title={"Principal"}></DividerItem>
+              <DividerItem
+                isCollapsed={isCollapsed}
+                title={"Principal"}
+              ></DividerItem>
 
               <Item
                 title="Inicio"
@@ -113,23 +116,26 @@ export const SidebarCustom = ({ selected, setSelected }) => {
                 icon={<EditOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-                to={"preparacion/inicio"}
+                to={"preparacion/registroJornadaFormal"}
               ></Item>
               <Item
                 title="Empadronamiento"
                 icon={<PersonAddAltOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-                to={"empadronamiento/"}
+                to={"empadronamiento/formal"}
               ></Item>
               <Item
                 title="Jornada"
                 icon={<BarChartOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-                to={"jornada/inicio"}
+                to={"jornada/reportesJornadasFormales"}
               ></Item>
-              <DividerItem isCollapsed={isCollapsed} title={"Otros"}></DividerItem>
+              <DividerItem
+                isCollapsed={isCollapsed}
+                title={"Otros"}
+              ></DividerItem>
               {/* <Item
                 title="Configuración"
                 icon={<SettingsOutlinedIcon />}
@@ -154,7 +160,10 @@ export const SidebarCustom = ({ selected, setSelected }) => {
               paddingRight="5px"
               sx={{ color: "white", paddingTop: "5rem" }}
             >
-              <IconButton onClick={() => setisCollapsed(!isCollapsed)} sx={{ color: "white" }}>
+              <IconButton
+                onClick={() => setisCollapsed(!isCollapsed)}
+                sx={{ color: "white" }}
+              >
                 <MenuOutlinedIcon />
               </IconButton>
             </Box>

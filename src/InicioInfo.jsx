@@ -14,7 +14,7 @@ export const InicioInfo = () => {
       <img
         width={"80%"}
         src={
-          "https://imagesvotacion.s3.eu-north-1.amazonaws.com/1677223707464_3.png"
+          "https://imagesvotacion.s3.eu-north-1.amazonaws.com/1687764712084_tripticoje.jpeg"
         }
       />
     </Box>
