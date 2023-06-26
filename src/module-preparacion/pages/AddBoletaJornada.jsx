@@ -3,7 +3,7 @@ import { Stack } from "@mui/system";
 import { Formik } from 'formik';
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { number, object, string } from "yup";
 // import { useUiStore } from "../../hooks/useUiStore";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -189,6 +189,8 @@ export const AddBoletaJornada = () => {
 	// 		);
 	// 	}
 	// };
+	const location = useLocation();
+	const propiedad = location.state.propiedad;
 	return (
 		<>
           {isLoading ? (
@@ -358,6 +360,7 @@ export const AddBoletaJornada = () => {
 							handleOpenModal={handleOpenRegisterModal}
 							handleOpenDeleteCandidatoModal={handleOpenDeleteCandidatoModal}
 							status={status}
+							valor={propiedad}
 						/> 
 						<> 
 						 <Box
@@ -373,7 +376,7 @@ export const AddBoletaJornada = () => {
 									onClick={handleOpenMatchModal}
 									variant="contained"
 									size="large"
-									disabled={status === "checking" || candidatoandSuplentes.length === 0 ? true : false}
+									disabled={status === "checking" || candidatoandSuplentes.length === 0 ? true : false || propiedad === "valor"}
 									sx={{
 										boxShadow: "0px 0px 0px rgba(0, 0, 0, 0.3)",
 										transition: "all 0.5s ease",
@@ -401,7 +404,7 @@ export const AddBoletaJornada = () => {
 									// mb: 2,
 								}}
 								>
-									<AgrupaPartido info={{ partidos: partidos}} handleOpenModal={handleOpenMatchModal}/>
+									<AgrupaPartido info={{ partidos: partidos}} handleOpenModal={handleOpenMatchModal} />
 								</Box>
 
 							</Box>

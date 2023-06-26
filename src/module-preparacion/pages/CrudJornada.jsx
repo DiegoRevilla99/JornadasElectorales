@@ -167,7 +167,7 @@ export const CrudJornada = () => {
     console.log("id boleta", id);
     dispatch(
       onGetBoletaData(id, () => {
-        navigate("/preparacion/jornada/" + params.id + "/boleta/" + id);
+        navigate("/preparacion/jornada/" + params.id + "/boleta/" + id, { state: { propiedad: "valor"}});
       })
     );
   };
@@ -181,7 +181,7 @@ export const CrudJornada = () => {
   const handleAdd = () => {
     // console.log("jornadaSelected", jornadaSelected.boletas);
     // navigate("/preparacion/jornada/boleta/");
-    navigate("/preparacion/jornada/" + params.id + "/boleta/" + jornadaSelected.boletas.length);
+    navigate("/preparacion/jornada/" + params.id + "/boleta/" + jornadaSelected.boletas.length, { state: { propiedad: "hola"}});
   };
   const closeModalDelete = () => {
     setModalDeleteStatus(false);
