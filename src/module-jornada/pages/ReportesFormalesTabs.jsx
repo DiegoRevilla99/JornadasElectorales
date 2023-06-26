@@ -73,12 +73,12 @@ export const ReportesFormalesTabs = () => {
       >
         <BreadCrumbsCustom
           routes={[
-            {
+            /* {
               name: "JORNADA",
               url: "/jornada/inicio",
-            },
+            }, */
             {
-              name: "REPORTES DE JORNADAS ELECTORALES",
+              name: "INICIO",
               url: "/jornada/reportesJornadasFormales",
             },
           ]}

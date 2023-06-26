@@ -22,14 +22,14 @@ import { BreadCrumbsCustom } from "../../module-empadronamiento/components/Bread
 import {
   onGetBoletaData,
   onGetBoletas,
-  onGetBoletasAll
+  onGetBoletasAll,
 } from "../../store/module-preparacion/jornada/ThunksJornada";
 import { GeneralTable } from "../components/GeneralTable";
 import { ModalEliminarBoletaFormal } from "../components/ModalEliminarBoletaFormal";
 import { useJornadaStore } from "../hooks/useJornadaStore";
 export const CrudJornada = () => {
   const navigate = useNavigate();
-  
+
   const [modalDeleteStatus, setModalDeleteStatus] = useState(false);
   const [idBoleta, setIdBoleta] = useState(null);
   const [nombreEstructuraBoleta, setNombreBoleta] = useState(null);
@@ -44,21 +44,19 @@ export const CrudJornada = () => {
     dispatch(onGetBoletasAll());
   }, []);
 
-  const { boletaStatusAll } = useSelector(
-    (state) => state.jornada
-  );
+  const { boletaStatusAll } = useSelector((state) => state.jornada);
 
+  const filteredBoletas = boletaStatusAll.filter((boleta) => {
+    return jornadaSelected.boletas.some(
+      (selectedBoleta) =>
+        selectedBoleta.idEstructuraBoleta === boleta.idEstructuraBoleta
+    );
+  });
 
-      const filteredBoletas = boletaStatusAll.filter((boleta) => {
-        return jornadaSelected.boletas.some(
-          (selectedBoleta) => selectedBoleta.idEstructuraBoleta === boleta.idEstructuraBoleta
-        );
-      });
+  // console.log("filteredBoletas", filteredBoletas);
 
-      // console.log("filteredBoletas", filteredBoletas);
-
-    const columns = [
-        {
+  const columns = [
+    {
       field: "nombreEstructuraBoleta",
       headerName: "TÍTULO DE LA BOLETA",
       flex: 4,
@@ -69,7 +67,7 @@ export const CrudJornada = () => {
       flex: 2,
       sortable: false,
       disableColumnMenu: true,
-      renderCell: ({row}) => {
+      renderCell: ({ row }) => {
         // console.log("dentro deeee",row);
         return (
           <Box width="100%" display="flex" justifyContent="space-evenly">
@@ -81,7 +79,9 @@ export const CrudJornada = () => {
               }
             >
               <PeopleAlt
-                htmlColor={row.estatus.candidatos.estatus ? "#2e7d32" : "#757575"}
+                htmlColor={
+                  row.estatus.candidatos.estatus ? "#2e7d32" : "#757575"
+                }
               />
             </Tooltip>
             <Tooltip
@@ -92,7 +92,7 @@ export const CrudJornada = () => {
               }
             >
               <ThreeP
-                htmlColor={row.estatus.partidos.estatus? "#2e7d32" : "#757575"}
+                htmlColor={row.estatus.partidos.estatus ? "#2e7d32" : "#757575"}
               />
             </Tooltip>
             <Tooltip
@@ -103,7 +103,9 @@ export const CrudJornada = () => {
               }
             >
               <HandshakeIcon
-                htmlColor={row.estatus.coaliciones.estatus? "#2e7d32" : "#757575"}
+                htmlColor={
+                  row.estatus.coaliciones.estatus ? "#2e7d32" : "#757575"
+                }
               />
             </Tooltip>
           </Box>
@@ -141,7 +143,9 @@ export const CrudJornada = () => {
             <Tooltip title="Eliminar la boleta">
               <IconButton
                 sx={{ color: "#511079" }}
-                onClick={() => handleDelete(params.id, params.row.nombreEstructuraBoleta)}
+                onClick={() =>
+                  handleDelete(params.id, params.row.nombreEstructuraBoleta)
+                }
               >
                 <DeleteIcon />
               </IconButton>
@@ -151,8 +155,6 @@ export const CrudJornada = () => {
       },
     },
   ];
-
-  
 
   // METODO PARA BORRAR UN REGISTRO
   const handleDelete = (id, title) => {
@@ -167,7 +169,9 @@ export const CrudJornada = () => {
     console.log("id boleta", id);
     dispatch(
       onGetBoletaData(id, () => {
-        navigate("/preparacion/jornada/" + params.id + "/boleta/" + id, { state: { propiedad: "valor"}});
+        navigate("/preparacion/jornada/" + params.id + "/boleta/" + id, {
+          state: { propiedad: "valor" },
+        });
       })
     );
   };
@@ -181,7 +185,13 @@ export const CrudJornada = () => {
   const handleAdd = () => {
     // console.log("jornadaSelected", jornadaSelected.boletas);
     // navigate("/preparacion/jornada/boleta/");
-    navigate("/preparacion/jornada/" + params.id + "/boleta/" + jornadaSelected.boletas.length, { state: { propiedad: "hola"}});
+    navigate(
+      "/preparacion/jornada/" +
+        params.id +
+        "/boleta/" +
+        jornadaSelected.boletas.length,
+      { state: { propiedad: "hola" } }
+    );
   };
   const closeModalDelete = () => {
     setModalDeleteStatus(false);
@@ -207,23 +217,40 @@ export const CrudJornada = () => {
           overflowY: "auto",
         }}
       >
-        <Grid item xs={12} sx={{ display: "flex", flexDirection: "column" }} mt={2}>
+        <Grid
+          item
+          xs={12}
+          sx={{ display: "flex", flexDirection: "column" }}
+          mt={2}
+        >
           <BreadCrumbsCustom
             routes={[
               {
-                name: "PREPARACIÓN",
-                url: "/preparacion/inicio",
-              },
-              {
-                name: "JORNADAS ELECTORALES",
+                name: "INICIO",
                 url: "/preparacion/registroJornadaFormal",
               },
+              /* {
+                name: "JORNADAS ELECTORALES",
+                url: "/preparacion/registroJornadaFormal",
+              }, */
             ]}
             currentRoute={jornadaSelected.title}
           ></BreadCrumbsCustom>
 
-          <Box sx={{ display: "flex", alignItems: "center", m: "0.5rem", ml: "2rem" }}>
-            <Typography variant="h6" align="left" color="initial" sx={{ flexGrow: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              m: "0.5rem",
+              ml: "2rem",
+            }}
+          >
+            <Typography
+              variant="h6"
+              align="left"
+              color="initial"
+              sx={{ flexGrow: 1 }}
+            >
               {jornadaSelected.title}
             </Typography>
             <Tooltip
@@ -285,7 +312,12 @@ export const CrudJornada = () => {
                 pt: "1rem",
               }}
             >
-              <Typography variant="h5" color="initial" mb="0.5rem" align="center">
+              <Typography
+                variant="h5"
+                color="initial"
+                mb="0.5rem"
+                align="center"
+              >
                 BOLETAS
               </Typography>
               <Divider />

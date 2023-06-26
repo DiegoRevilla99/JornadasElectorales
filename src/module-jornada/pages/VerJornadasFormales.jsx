@@ -29,7 +29,11 @@ export const VerJornadasFormales = () => {
   console.log(jornadasData);
   const dispatch = useDispatch();
   const columns = [
-    { field: "nombreJornada", headerName: "Título de la jornada formal", flex: 10 },
+    {
+      field: "nombreJornada",
+      headerName: "Título de la jornada formal",
+      flex: 10,
+    },
     {
       field: "acciones",
       headerName: "Acciones",
@@ -82,13 +86,13 @@ export const VerJornadasFormales = () => {
       >
         <Grid item xs={12} sx={{ display: "flex", flexDirection: "column" }}>
           <BreadCrumbsCustom
-            routes={[
+            /* routes={[
               {
                 name: "JORNADA",
                 url: "/jornada/inicio",
               },
-            ]}
-            currentRoute="JORNADAS ELECTORALES REGISTRADAS"
+            ]} */
+            currentRoute="INICIO"
           />
           <Box
             sx={{ m: "0.5rem", ml: "2rem" }}
@@ -135,12 +139,23 @@ export const VerJornadasFormales = () => {
                 Jornadas electorales
               </Typography>
               <Divider />
-              <Box mt={"1rem"} sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+              <Box
+                mt={"1rem"}
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 {/* <DataGridTable /> */}
                 {/* <TableRegistroProceso title={"Nombre de la consulta ciudadana"} /> */}
                 {/* <Tabla data={datos} actions={actions} columns={columns}></Tabla> */}
                 {/* <TableConsultasCiudadanas /> */}
-                <GeneralTable data={jornadasData} columns={columns} idName={"idJornada"} />
+                <GeneralTable
+                  data={jornadasData}
+                  columns={columns}
+                  idName={"idJornada"}
+                />
               </Box>
             </Box>
           </Box>

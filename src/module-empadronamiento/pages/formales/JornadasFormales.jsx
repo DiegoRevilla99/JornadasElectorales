@@ -170,13 +170,15 @@ export const JornadasFormales = () => {
         }}
       >
         <BreadCrumbsCustom
-          routes={[
-            {
+          routes={
+            [
+              /* {
               name: "INICIO",
               url: "/empadronamiento/",
-            },
-          ]}
-          currentRoute="JORNADAS ELECTORALES"
+            }, */
+            ]
+          }
+          currentRoute="INICIO"
         />
         {/* <Typography sx={{ mt: 4 }} textAlign="center">
           LISTA JORNADAS

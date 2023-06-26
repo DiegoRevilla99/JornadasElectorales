@@ -8,10 +8,8 @@ import { useCheckAuth } from "../hooks/useCheckAuth";
 export const PublicRoute = ({ children }) => {
   // const { status } = useCheckAuth();
   const { status } = useSelector((state) => state.auth);
-  console.log("StatusGGG de Public " + status);
   let ruta = sessionStorage.getItem("Location");
   ruta = ruta ? ruta : "/home";
-  console.log("ruta::" + ruta);
   return (status === "notLogged") | (status === "checking") ? (
     children
   ) : (

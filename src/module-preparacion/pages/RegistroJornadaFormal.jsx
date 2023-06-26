@@ -59,7 +59,11 @@ export const RegistroJornadaFormal = () => {
               }
             >
               <BallotIcon
-                htmlColor={params.row.estatus.estructuraBoleta.estatus ? "#2e7d32" : "#757575"}
+                htmlColor={
+                  params.row.estatus.estructuraBoleta.estatus
+                    ? "#2e7d32"
+                    : "#757575"
+                }
               />
             </Tooltip>
             <Tooltip
@@ -70,7 +74,11 @@ export const RegistroJornadaFormal = () => {
               }
             >
               <SettingsIcon
-                htmlColor={params.row.estatus.configuracion.estatus ? "#2e7d32" : "#757575"}
+                htmlColor={
+                  params.row.estatus.configuracion.estatus
+                    ? "#2e7d32"
+                    : "#757575"
+                }
               />
             </Tooltip>
             {/* <Tooltip
@@ -119,7 +127,9 @@ export const RegistroJornadaFormal = () => {
             <Tooltip title="Eliminar esta jornada">
               <IconButton
                 sx={{ color: "#511079" }}
-                onClick={() => handleDelete(params.id, params.row.nombreJornada)}
+                onClick={() =>
+                  handleDelete(params.id, params.row.nombreJornada)
+                }
               >
                 <DeleteIcon />
               </IconButton>
@@ -190,19 +200,36 @@ export const RegistroJornadaFormal = () => {
           overflowY: "auto",
         }}
       >
-        <Grid item xs={12} sx={{ display: "flex", flexDirection: "column" }} mt={2}>
+        <Grid
+          item
+          xs={12}
+          sx={{ display: "flex", flexDirection: "column" }}
+          mt={2}
+        >
           <BreadCrumbsCustom
-            routes={[
+            /* routes={[
               {
                 name: "PREPARACIÓN",
                 url: "/preparacion/inicio",
               },
-            ]}
+            ]} */
             currentRoute="JORNADAS ELECTORALES"
           />
 
-          <Box sx={{ display: "flex", alignItems: "center", m: "0.5rem", ml: "2rem" }}>
-            <Typography variant="h6" align="left" color="initial" sx={{ flexGrow: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              m: "0.5rem",
+              ml: "2rem",
+            }}
+          >
+            <Typography
+              variant="h6"
+              align="left"
+              color="initial"
+              sx={{ flexGrow: 1 }}
+            >
               PASO 1.- REGISTRO DE UNA JORNADA ELECTORAL
             </Typography>
             <Tooltip
@@ -263,7 +290,12 @@ export const RegistroJornadaFormal = () => {
                 pt: "1rem",
               }}
             >
-              <Typography variant="h5" color="initial" mb="0.5rem" align="center">
+              <Typography
+                variant="h5"
+                color="initial"
+                mb="0.5rem"
+                align="center"
+              >
                 JORNADAS ELECTORALES
               </Typography>
               <Divider />

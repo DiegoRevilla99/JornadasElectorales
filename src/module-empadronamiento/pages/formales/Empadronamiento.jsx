@@ -50,12 +50,12 @@ export const Empadronamiento = () => {
           routes={[
             {
               name: "INICIO",
-              url: "/empadronamiento/",
-            },
-            {
-              name: "JORNADAS FORMALES",
               url: "/empadronamiento/formal",
             },
+            /* {
+              name: "JORNADAS FORMALES",
+              url: "/empadronamiento/formal",
+            }, */
           ]}
           currentRoute={!isLoadingEleccion ? eleccion.nombreJornada : "..."}
         ></BreadCrumbsCustom>
