@@ -84,7 +84,7 @@ export const InicioPage = () => {
               Jornadas electorales
             </Button>
           </Grid>
-          <Grid item xs={12} lg={4}>
+          {/* <Grid item xs={12} lg={4}>
             <Button
               onClick={goNoFormales}
               variant="contained"
@@ -157,7 +157,7 @@ export const InicioPage = () => {
             >
               Consultas ciudadanas
             </Button>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       {/* <ModalEliminarPregunta statusDeleteModal={statusDeleteModal} handleToggleModal={handleCloseDeleteModal} /> */}

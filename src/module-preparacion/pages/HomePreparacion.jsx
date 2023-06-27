@@ -86,7 +86,7 @@ export const HomePreparacion = () => {
                 Jornadas electorales
               </Button>
             </Grid>
-            <Grid item xs={12} lg={4}>
+            {/* <Grid item xs={12} lg={4}>
               <Button
                 onClick={plantilla2}
                 variant="contained"
@@ -159,7 +159,7 @@ export const HomePreparacion = () => {
               >
                 Consultas ciudadanas
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
       </Box>

@@ -178,10 +178,14 @@ export const AddBoletaJornada = () => {
   const handleTerminar = () => {
     navigate("/preparacion/jornada/" + params.id);
   };
-
   const handleConfigurar = () => {
     // console.log("boletaId aaaaa", estructuraBoletaId);
-    navigate("/preparacion/jornada/configboleta/" + estructuraBoletaId);
+    navigate(
+      "/preparacion/jornada/configboleta/" +
+        params.id +
+        "/" +
+        estructuraBoletaId
+    );
   };
 
   // const onSubmit = (values) => {
