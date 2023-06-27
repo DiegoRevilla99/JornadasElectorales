@@ -117,7 +117,10 @@ export const PreparacionRoutes = () => {
           element={<ConfiguracionConsulta />}
         />
 
-        <Route path="/*" element={<Navigate to="/preparacion/inicio" />} />
+        <Route
+          path="/*"
+          element={<Navigate to="/preparacion/registroJornadaFormal" />}
+        />
       </Routes>
     </PrivateRoute>
   );

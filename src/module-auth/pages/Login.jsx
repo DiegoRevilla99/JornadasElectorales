@@ -1,6 +1,13 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Grid, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Grid,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
 import { Formik } from "formik";
@@ -13,7 +20,9 @@ import { onLoginWithEmailAndPassword } from "../../store/auth/authThunks";
 const validationSchema = object({
   // correo: string("Ingresa tu correo").email().required("Este campo es requerido"),
   curp: string("Ingresa tu correo").required("Este campo es requerido"),
-  contrasenia: string("Ingresa tu contraseña").required("Este campo es requerido"),
+  contrasenia: string("Ingresa tu contraseña").required(
+    "Este campo es requerido"
+  ),
 });
 
 export const Login = () => {
@@ -32,7 +41,7 @@ export const Login = () => {
   const onSubmit = (values) => {
     dispatch(
       onLoginWithEmailAndPassword(values.curp, values.contrasenia, () => {
-        navigate("/preparacion/inicioPage");
+        navigate("/preparacion/registroJornadaFormal");
       })
     );
   };
@@ -67,10 +76,15 @@ export const Login = () => {
         justifyContent="center"
         height="100%"
       >
-        <Box display="flex" flexDirection="column" alignItems="center" maxWidth="300px">
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          maxWidth="300px"
+        >
           <Typography variant="body1" color="error" textAlign="center" mb={2}>
-            NO PUEDE USAR EL SISTEMA EN ESTE TIPO DE PANTALLAS. POR FAVOR, INTÉNTELO EN OTRO
-            DISPOSITIVO.
+            NO PUEDE USAR EL SISTEMA EN ESTE TIPO DE PANTALLAS. POR FAVOR,
+            INTÉNTELO EN OTRO DISPOSITIVO.
           </Typography>
           <Box width="100%" display="flex" justifyContent="center">
             <img
@@ -163,7 +177,12 @@ export const Login = () => {
               sx={{ padding: "2rem", width: "100%" }}
             >
               <Box display={"flex"} flexDirection="column" px={"2rem"}>
-                <Typography variant="h5" color="initial" textAlign={"center"} mb={"2rem"}>
+                <Typography
+                  variant="h5"
+                  color="initial"
+                  textAlign={"center"}
+                  mb={"2rem"}
+                >
                   BIENVENIDO AL PROTOTIPO DE SISTEMA DE VOTACIONES
                 </Typography>
 
@@ -175,7 +194,14 @@ export const Login = () => {
                     onSubmit(values);
                   }}
                 >
-                  {({ handleChange, values, errors, touched, handleSubmit, setFieldValue }) => (
+                  {({
+                    handleChange,
+                    values,
+                    errors,
+                    touched,
+                    handleSubmit,
+                    setFieldValue,
+                  }) => (
                     <form onSubmit={handleSubmit}>
                       <TextField
                         name="curp"
@@ -185,7 +211,10 @@ export const Login = () => {
                         label="CURP"
                         variant="standard"
                         onChange={(event) =>
-                          setFieldValue("curp", `${event.target.value.toUpperCase()}`)
+                          setFieldValue(
+                            "curp",
+                            `${event.target.value.toUpperCase()}`
+                          )
                         }
                         value={values.curp}
                         error={touched.curp && Boolean(errors.curp)}
@@ -202,7 +231,9 @@ export const Login = () => {
                         type={visible ? "text" : "password"}
                         onChange={handleChange}
                         value={values.contrasenia}
-                        error={touched.contrasenia && Boolean(errors.contrasenia)}
+                        error={
+                          touched.contrasenia && Boolean(errors.contrasenia)
+                        }
                         helperText={touched.contrasenia && errors.contrasenia}
                         sx={{ marginBottom: "2rem" }}
                         InputProps={{
@@ -214,7 +245,10 @@ export const Login = () => {
                                 alignItems="center"
                                 justifyContent="center"
                               >
-                                <IconButton onClick={() => setVisible(!visible)} edge="end">
+                                <IconButton
+                                  onClick={() => setVisible(!visible)}
+                                  edge="end"
+                                >
                                   {visible ? <Visibility /> : <VisibilityOff />}
                                 </IconButton>
                               </Box>

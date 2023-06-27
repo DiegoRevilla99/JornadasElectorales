@@ -12,8 +12,7 @@ import { JornadasNoFormales } from "../pages/no-formales/JornadasNoFormales";
 
 export const EmpadronamientoRoutes = () => {
   return (
-    
-  <PrivateRoute>
+    <PrivateRoute>
       <Routes>
         <Route path="/" element={<InicioPage></InicioPage>} />
         <Route path="formal" element={<JornadasFormales />} />
@@ -23,10 +22,8 @@ export const EmpadronamientoRoutes = () => {
         <Route path="consultas" element={<Consultas />} />
         <Route path="consultas/:id" element={<EmpadronamientoC />} />
 
-        <Route path="/*" element={<Navigate to="/empadronamiento/" />} />
+        <Route path="/*" element={<Navigate to="/empadronamiento/formal" />} />
       </Routes>
     </PrivateRoute>
-    
-    
   );
 };

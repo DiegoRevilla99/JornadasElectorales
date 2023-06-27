@@ -10,27 +10,42 @@ import { VerJornadasFormales } from "../pages/VerJornadasFormales";
 import { VerJornadasNoFormales } from "../pages/VerJornadasNoFormales";
 
 export const JornadaRoutes = () => {
-	return (
-		<PrivateRoute>
-			<Routes>
-				<Route path="inicio" element={<InicioJornadaPage />} />
+  return (
+    <PrivateRoute>
+      <Routes>
+        <Route path="inicio" element={<InicioJornadaPage />} />
 
-				<Route path="/*" element={<Navigate to="/jornada/inicio" />} />
-				<Route path="reportesJornadasFormales" element={<VerJornadasFormales />} />
-				<Route path="reportes/:idJornada/*" element={<ReportesFormalesTabs />} />
+        <Route
+          path="/*"
+          element={<Navigate to="/jornada/reportesJornadasFormales" />}
+        />
+        <Route
+          path="reportesJornadasFormales"
+          element={<VerJornadasFormales />}
+        />
+        <Route
+          path="reportes/:idJornada/*"
+          element={<ReportesFormalesTabs />}
+        />
 
-				<Route path="reportesJornadasNoFormales" element={<VerJornadasNoFormales />} />
-				<Route
-					path="reportesJornadasNoFormales/reportes/:idJornada/*"
-					element={<ReportesNoFormalesTabs />}
-				/>
+        <Route
+          path="reportesJornadasNoFormales"
+          element={<VerJornadasNoFormales />}
+        />
+        <Route
+          path="reportesJornadasNoFormales/reportes/:idJornada/*"
+          element={<ReportesNoFormalesTabs />}
+        />
 
-				<Route path="reportesConsultasCiudadanas" element={<VerConsultasCiudadanas />} />
-				<Route
-					path="reportesConsultasCiudadanas/reportes/:idConsulta/*"
-					element={<ConsultasTabs />}
-				/>
-			</Routes>
-		</PrivateRoute>
-	);
+        <Route
+          path="reportesConsultasCiudadanas"
+          element={<VerConsultasCiudadanas />}
+        />
+        <Route
+          path="reportesConsultasCiudadanas/reportes/:idConsulta/*"
+          element={<ConsultasTabs />}
+        />
+      </Routes>
+    </PrivateRoute>
+  );
 };
