@@ -62,8 +62,8 @@ export const CrudJornadaGenerica = () => {
             <Tooltip
               title={
                 row.estatusBoleta.candidatos.estatus
-                  ? "La boleta ya cuenta con una o más candidatos creadas"
-                  : "La boleta aún no cuenta con candidatos creadas"
+                  ? "La boleta ya cuenta con un candidato o más creados"
+                  : "La boleta aún no cuenta con candidatos creados"
               }
             >
               <PeopleAlt

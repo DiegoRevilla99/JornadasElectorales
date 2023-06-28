@@ -74,8 +74,8 @@ export const CrudJornada = () => {
             <Tooltip
               title={
                 row.estatus.candidatos.estatus
-                  ? "La boleta ya cuenta con una o más candidatos creadas"
-                  : "La boleta aún no cuenta con candidatos creadas"
+                  ? "La boleta ya cuenta con un candidato o más creados"
+                  : "La boleta aún no cuenta con candidatos creados"
               }
             >
               <PeopleAlt
@@ -87,8 +87,8 @@ export const CrudJornada = () => {
             <Tooltip
               title={
                 row.estatus.partidos.estatus
-                  ? "La boleta ya cuenta con una o más partidos creadas"
-                  : "La boleta aún no ha sido configurada"
+                  ? "La boleta ya cuenta con un partido o más creados"
+                  : "La boleta aún no cuenta con partidos creados"
               }
             >
               <ThreeP
